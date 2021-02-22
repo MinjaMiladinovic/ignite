@@ -358,6 +358,17 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        Callable: update function.</span>
 
+<span class="sd">    Example::</span>
+
+<span class="sd">        from ignite.engine import Engine, supervised_training_step</span>
+
+<span class="sd">        model = ...</span>
+<span class="sd">        optimizer = ...</span>
+<span class="sd">        loss_fn = ...</span>
+
+<span class="sd">        update_fn = supervised_training_step(model, optimizer, loss_fn, &#39;cuda&#39;)</span>
+<span class="sd">        trainer = Engine(update_fn)</span>
+
 <span class="sd">    .. versionadded:: 0.5.0</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -403,6 +414,18 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Callable: update function</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        from ignite.engine import Engine, supervised_training_step_amp</span>
+
+<span class="sd">        model = ...</span>
+<span class="sd">        optimizer = ...</span>
+<span class="sd">        loss_fn = ...</span>
+<span class="sd">        scaler = torch.cuda.amp.GradScaler(2**10)</span>
+
+<span class="sd">        update_fn = supervised_training_step_amp(model, optimizer, loss_fn, &#39;cuda&#39;, scaler=scaler)</span>
+<span class="sd">        trainer = Engine(update_fn)</span>
 
 <span class="sd">    .. versionadded:: 0.5.0</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -459,6 +482,17 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        Callable: update function.</span>
 
+<span class="sd">    Example::</span>
+
+<span class="sd">        from ignite.engine import Engine, supervised_training_step_apex</span>
+
+<span class="sd">        model = ...</span>
+<span class="sd">        optimizer = ...</span>
+<span class="sd">        loss_fn = ...</span>
+
+<span class="sd">        update_fn = supervised_training_step_apex(model, optimizer, loss_fn, &#39;cuda&#39;)</span>
+<span class="sd">        trainer = Engine(update_fn)</span>
+
 <span class="sd">    .. versionadded:: 0.5.0</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -508,6 +542,17 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Callable: update function.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        from ignite.engine import Engine, supervised_training_step_tpu</span>
+
+<span class="sd">        model = ...</span>
+<span class="sd">        optimizer = ...</span>
+<span class="sd">        loss_fn = ...</span>
+
+<span class="sd">        update_fn = supervised_training_step_tpu(model, optimizer, loss_fn, &#39;xla&#39;)</span>
+<span class="sd">        trainer = Engine(update_fn)</span>
 
 <span class="sd">    .. versionadded:: 0.5.0</span>
 <span class="sd">    &quot;&quot;&quot;</span>
