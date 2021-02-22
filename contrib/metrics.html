@@ -318,7 +318,7 @@
 </table>
 <span class="target" id="module-ignite.contrib.metrics"></span><dl class="py class">
 <dt id="ignite.contrib.metrics.AveragePrecision">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">AveragePrecision</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function AveragePrecision.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/average_precision.html#AveragePrecision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.AveragePrecision" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">AveragePrecision</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function AveragePrecision.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/average_precision.html#AveragePrecision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.AveragePrecision" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes Average Precision accumulating predictions and the ground-truth during an epoch
 and applying <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score">sklearn.metrics.average_precision_score</a> .</p>
 <dl class="field-list simple">
@@ -331,6 +331,9 @@ you want to compute the metric with respect to one of the outputs.</p></li>
 <li><p><strong>check_compute_fn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Default False. If True, <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score">average_precision_score</a> is run on the first batch of data to ensure there are
 no issues. User will be warned in case there are any issues computing the function.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 <p>AveragePrecision expects y to be comprised of 0’s and 1’s. y_pred must either be probability estimates or
@@ -369,9 +372,14 @@ on each iterations.</p>
                  <span class="n">event_name</span><span class="o">=</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">)</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="ignite.contrib.metrics.GpuInfo.attach">
-<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">engine: ignite.engine.engine.Engine</em>, <em class="sig-param">name: str = 'gpu'</em>, <em class="sig-param">event_name: Union[str</em>, <em class="sig-param">ignite.engine.events.EventEnum] = &lt;Events.ITERATION_COMPLETED: 'iteration_completed'&gt;</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.attach" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">engine</em>, <em class="sig-param">name='gpu'</em>, <em class="sig-param">event_name=&lt;Events.ITERATION_COMPLETED: 'iteration_completed'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.attach" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attaches current metric to provided engine. On the end of engine’s run, <cite>engine.state.metrics</cite> dictionary will
 contain computed metric’s value under provided name.</p>
 <dl class="field-list simple">
@@ -382,7 +390,11 @@ contain computed metric’s value under provided name.</p>
 <li><p><strong>usage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference internal" href="../metrics.html#ignite.metrics.MetricUsage" title="ignite.metrics.MetricUsage"><em>MetricUsage</em></a><em>, </em><em>optional</em>) – the usage of the metric. Valid string values should be
 <a class="reference internal" href="../metrics.html#ignite.metrics.EpochWise.usage_name" title="ignite.metrics.EpochWise.usage_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignite.metrics.EpochWise.usage_name</span></code></a> (default) or
 <a class="reference internal" href="../metrics.html#ignite.metrics.BatchWise.usage_name" title="ignite.metrics.BatchWise.usage_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignite.metrics.BatchWise.usage_name</span></code></a>.</p></li>
+<li><p><strong>event_name</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference internal" href="../engine.html#ignite.engine.events.EventEnum" title="ignite.engine.events.EventEnum"><em>ignite.engine.events.EventEnum</em></a><em>]</em>) – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -407,7 +419,7 @@ contain computed metric’s value under provided name.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.metrics.GpuInfo.completed">
-<code class="sig-name descname">completed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.completed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.completed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">completed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.completed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.completed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to compute metric’s value and put into the engine. It is automatically attached to the
 <cite>engine</cite> with <a class="reference internal" href="../metrics.html#ignite.metrics.Metric.attach" title="ignite.metrics.Metric.attach"><code class="xref py py-meth docutils literal notranslate"><span class="pre">attach()</span></code></a>.</p>
 <dl class="field-list simple">
@@ -417,6 +429,9 @@ contain computed metric’s value under provided name.</p>
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – the name of the metric used as key in dict <cite>engine.state.metrics</cite></p></li>
 </ul>
 </dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
 </dl>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.4.3: </span>Added dict in metrics results.</p>
@@ -425,7 +440,7 @@ contain computed metric’s value under provided name.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.metrics.GpuInfo.compute">
-<code class="sig-name descname">compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span><span class="p">]</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.compute" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.compute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the metric based on it’s accumulated state.</p>
 <p>By default, this is called at the end of each epoch.</p>
 <dl class="field-list simple">
@@ -448,19 +463,27 @@ it will be (shallow) flattened into <cite>engine.state.metrics</cite> when
 
 <dl class="py method">
 <dt id="ignite.contrib.metrics.GpuInfo.reset">
-<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the metric to it’s initial state.</p>
 <p>By default, this is called at the start of each epoch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="ignite.contrib.metrics.GpuInfo.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output</span><span class="p">:</span> <span class="n">Tuple<span class="p">[</span>torch.Tensor<span class="p">, </span>torch.Tensor<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/gpu_info.html#GpuInfo.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.GpuInfo.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the metric’s state using the passed batch output.</p>
 <p>By default, this is called once for each batch.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>output</strong> – the is the output from the engine’s process function.</p>
+<dd class="field-odd"><p><strong>output</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.Tensor</em></a><em>, </em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.Tensor</em></a><em>]</em>) – the is the output from the engine’s process function.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -469,7 +492,7 @@ it will be (shallow) flattened into <cite>engine.state.metrics</cite> when
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.PrecisionRecallCurve">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">PrecisionRecallCurve</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function PrecisionRecallCurve.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/precision_recall_curve.html#PrecisionRecallCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.PrecisionRecallCurve" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">PrecisionRecallCurve</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function PrecisionRecallCurve.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/precision_recall_curve.html#PrecisionRecallCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.PrecisionRecallCurve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute precision-recall pairs for different probability thresholds for binary classification task
 by accumulating predictions and the ground-truth during an epoch and applying
 <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve">sklearn.metrics.precision_recall_curve</a> .</p>
@@ -483,6 +506,9 @@ you want to compute the metric with respect to one of the outputs.</p></li>
 <li><p><strong>check_compute_fn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Default False. If True, <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve">precision_recall_curve</a> is run on the first batch of data to ensure there are
 no issues. User will be warned in case there are any issues computing the function.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 <p>PrecisionRecallCurve expects y to be comprised of 0’s and 1’s. y_pred must either be probability estimates
@@ -499,7 +525,7 @@ or confidence values. To apply an activation to y_pred, use output_transform as 
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.ROC_AUC">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">ROC_AUC</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function ROC_AUC.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/roc_auc.html#ROC_AUC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.ROC_AUC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">ROC_AUC</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function ROC_AUC.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/roc_auc.html#ROC_AUC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.ROC_AUC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes Area Under the Receiver Operating Characteristic Curve (ROC AUC)
 accumulating predictions and the ground-truth during an epoch and applying
 <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score">sklearn.metrics.roc_auc_score</a> .</p>
@@ -513,6 +539,9 @@ you want to compute the metric with respect to one of the outputs.</p></li>
 <li><p><strong>check_compute_fn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Default False. If True, <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score">roc_curve</a> is run on the first batch of data to ensure there are
 no issues. User will be warned in case there are any issues computing the function.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 <p>ROC_AUC expects y to be comprised of 0’s and 1’s. y_pred must either be probability estimates or confidence
@@ -529,7 +558,7 @@ values. To apply an activation to y_pred, use output_transform as shown below:</
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.RocCurve">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">RocCurve</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function RocCurve.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/roc_auc.html#RocCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.RocCurve" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.</code><code class="sig-name descname">RocCurve</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function RocCurve.&lt;lambda&gt;&gt;</em>, <em class="sig-param">check_compute_fn=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/roc_auc.html#RocCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.RocCurve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute Receiver operating characteristic (ROC) for binary classification task
 by accumulating predictions and the ground-truth during an epoch and applying
 <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve">sklearn.metrics.roc_curve</a> .</p>
@@ -544,6 +573,9 @@ you want to compute the metric with respect to one of the outputs.</p></li>
 no issues. User will be warned in case there are any issues computing the function.</p>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 <p>RocCurve expects y to be comprised of 0’s and 1’s. y_pred must either be probability estimates or confidence
@@ -618,7 +650,7 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 </table>
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.CanberraMetric">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">CanberraMetric</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function CanberraMetric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/canberra_metric.html#CanberraMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.CanberraMetric" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">CanberraMetric</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function CanberraMetric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/canberra_metric.html#CanberraMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.CanberraMetric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Canberra Metric.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>CM</mtext><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mfrac><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{CM} = \sum_{j=1}^n\frac{|A_j - P_j|}{|A_j| + |P_j|}
@@ -641,11 +673,22 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p>Works with DDP.</p></li>
 </ul>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.FractionalAbsoluteError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">FractionalAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/fractional_absolute_error.html#FractionalAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.FractionalAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">FractionalAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/fractional_absolute_error.html#FractionalAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.FractionalAbsoluteError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Fractional Absolute Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>FAE</mtext><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mfrac><mrow><mn>2</mn><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{FAE} = \frac{1}{n}\sum_{j=1}^n\frac{2 |A_j - P_j|}{|A_j| + |P_j|}
@@ -662,11 +705,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.FractionalBias">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">FractionalBias</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/fractional_bias.html#FractionalBias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.FractionalBias" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">FractionalBias</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/fractional_bias.html#FractionalBias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.FractionalBias" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Fractional Bias.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>FB</mtext><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mfrac><mrow><mn>2</mn><mo stretchy="false">(</mo><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><mrow><msub><mi>A</mi><mi>j</mi></msub><mo>+</mo><msub><mi>P</mi><mi>j</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{FB} = \frac{1}{n}\sum_{j=1}^n\frac{2 (A_j - P_j)}{A_j + P_j}
@@ -683,11 +734,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.GeometricMeanAbsoluteError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">GeometricMeanAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/geometric_mean_absolute_error.html#GeometricMeanAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.GeometricMeanAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">GeometricMeanAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/geometric_mean_absolute_error.html#GeometricMeanAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.GeometricMeanAbsoluteError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Geometric Mean Absolute Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>GMAE</mtext><mo>=</mo><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>ln</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{GMAE} = \exp(\frac{1}{n}\sum_{j=1}^n\ln(|A_j - P_j|))
@@ -704,11 +763,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.GeometricMeanRelativeAbsoluteError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">GeometricMeanRelativeAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/geometric_mean_relative_absolute_error.html#GeometricMeanRelativeAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.GeometricMeanRelativeAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">GeometricMeanRelativeAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/geometric_mean_relative_absolute_error.html#GeometricMeanRelativeAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.GeometricMeanRelativeAbsoluteError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Geometric Mean Relative Absolute Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>GMRAE</mtext><mo>=</mo><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>ln</mi><mo>⁡</mo><mfrac><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><mover accent="true"><mi>A</mi><mo>ˉ</mo></mover><mi mathvariant="normal">∣</mi></mrow></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{GMRAE} = \exp(\frac{1}{n}\sum_{j=1}^n \ln\frac{|A_j - P_j|}{|A_j - \bar{A}|})
@@ -725,11 +792,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.ManhattanDistance">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">ManhattanDistance</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function ManhattanDistance.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/manhattan_distance.html#ManhattanDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.ManhattanDistance" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">ManhattanDistance</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function ManhattanDistance.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/manhattan_distance.html#ManhattanDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.ManhattanDistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Manhattan Distance.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MD</mtext><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">\text{MD} = \sum_{j=1}^n |A_j - P_j|
@@ -752,11 +827,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p>Workes with DDP.</p></li>
 </ul>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MaximumAbsoluteError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MaximumAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/maximum_absolute_error.html#MaximumAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MaximumAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MaximumAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/maximum_absolute_error.html#MaximumAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MaximumAbsoluteError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Maximum Absolute Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MaxAE</mtext><mo>=</mo><munder><mo><mi>max</mi><mo>⁡</mo></mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi></mrow></munder><mrow><mo fence="true">(</mo><mo stretchy="false">∣</mo><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mo stretchy="false">∣</mo><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{MaxAE} = \max_{j=1,n} \left( \lvert A_j-P_j \rvert \right)
@@ -773,11 +856,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MeanAbsoluteRelativeError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MeanAbsoluteRelativeError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/mean_absolute_relative_error.html#MeanAbsoluteRelativeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MeanAbsoluteRelativeError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MeanAbsoluteRelativeError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/mean_absolute_relative_error.html#MeanAbsoluteRelativeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MeanAbsoluteRelativeError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate Mean Absolute Relative Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MARE</mtext><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mfrac><mrow><mo fence="true">∣</mo><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mo fence="true">∣</mo></mrow><mrow><mo fence="true">∣</mo><msub><mi>A</mi><mi>j</mi></msub><mo fence="true">∣</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{MARE} = \frac{1}{n}\sum_{j=1}^n\frac{\left|A_j-P_j\right|}{\left|A_j\right|}
@@ -794,11 +885,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MeanError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MeanError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/mean_error.html#MeanError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MeanError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MeanError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/mean_error.html#MeanError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MeanError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Mean Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>ME</mtext><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false">(</mo><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{ME} = \frac{1}{n}\sum_{j=1}^n (A_j - P_j)
@@ -815,11 +914,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MeanNormalizedBias">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MeanNormalizedBias</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/mean_normalized_bias.html#MeanNormalizedBias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MeanNormalizedBias" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MeanNormalizedBias</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/mean_normalized_bias.html#MeanNormalizedBias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MeanNormalizedBias" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Mean Normalized Bias.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MNB</mtext><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mfrac><mrow><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub></mrow><msub><mi>A</mi><mi>j</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">\text{MNB} = \frac{1}{n}\sum_{j=1}^n\frac{A_j - P_j}{A_j}
@@ -836,11 +943,19 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MedianAbsoluteError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MedianAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function MedianAbsoluteError.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/median_absolute_error.html#MedianAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MedianAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MedianAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function MedianAbsoluteError.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/median_absolute_error.html#MedianAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MedianAbsoluteError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Median Absolute Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MdAE</mtext><mo>=</mo><msub><mtext>MD</mtext><mrow><mi>j</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi></mrow></msub><mrow><mo fence="true">(</mo><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{MdAE} = \text{MD}_{j=1,n} \left( |A_j - P_j| \right)
@@ -862,11 +977,16 @@ metrics useful for regression tasks. Definitions of metrics are based on <a clas
 <p>Current implementation stores all input data (output and target) in as tensors before computing a metric.
 This can potentially lead to a memory error if the input data is larger than available RAM.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output_transform</strong> (<em>Callable</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MedianAbsolutePercentageError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MedianAbsolutePercentageError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function MedianAbsolutePercentageError.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/median_absolute_percentage_error.html#MedianAbsolutePercentageError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MedianAbsolutePercentageError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MedianAbsolutePercentageError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function MedianAbsolutePercentageError.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/median_absolute_percentage_error.html#MedianAbsolutePercentageError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MedianAbsolutePercentageError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Median Absolute Percentage Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MdAPE</mtext><mo>=</mo><mn>100</mn><mo>⋅</mo><msub><mtext>MD</mtext><mrow><mi>j</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi></mrow></msub><mrow><mo fence="true">(</mo><mfrac><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{MdAPE} = 100 \cdot \text{MD}_{j=1,n} \left( \frac{|A_j - P_j|}{|A_j|} \right)
@@ -888,11 +1008,16 @@ This can potentially lead to a memory error if the input data is larger than ava
 <p>Current implementation stores all input data (output and target) in as tensors before computing a metric.
 This can potentially lead to a memory error if the input data is larger than available RAM.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output_transform</strong> (<em>Callable</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.MedianRelativeAbsoluteError">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MedianRelativeAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function MedianRelativeAbsoluteError.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/median_relative_absolute_error.html#MedianRelativeAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MedianRelativeAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">MedianRelativeAbsoluteError</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function MedianRelativeAbsoluteError.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/median_relative_absolute_error.html#MedianRelativeAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.MedianRelativeAbsoluteError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Median Relative Absolute Error.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MdRAE</mtext><mo>=</mo><msub><mtext>MD</mtext><mrow><mi>j</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi></mrow></msub><mrow><mo fence="true">(</mo><mfrac><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><mover accent="true"><mi>A</mi><mo>ˉ</mo></mover><mi mathvariant="normal">∣</mi></mrow></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{MdRAE} = \text{MD}_{j=1,n} \left( \frac{|A_j - P_j|}{|A_j - \bar{A}|} \right)
@@ -914,11 +1039,16 @@ This can potentially lead to a memory error if the input data is larger than ava
 <p>Current implementation stores all input data (output and target) in as tensors before computing a metric.
 This can potentially lead to a memory error if the input data is larger than available RAM.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output_transform</strong> (<em>Callable</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.R2Score">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">R2Score</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function R2Score.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/r2_score.html#R2Score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.R2Score" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">R2Score</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function R2Score.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/r2_score.html#R2Score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.R2Score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the R-Squared, the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>.</p>
 <div class="math">
@@ -941,11 +1071,19 @@ This can potentially lead to a memory error if the input data is larger than ava
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.4.3: </span>Works with DDP.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.metrics.regression.WaveHedgesDistance">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">WaveHedgesDistance</code><span class="sig-paren">(</span><em class="sig-param">output_transform: Callable = &lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device: Union[str</em>, <em class="sig-param">torch.device] = device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/wave_hedges_distance.html#WaveHedgesDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.WaveHedgesDistance" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.metrics.regression.</code><code class="sig-name descname">WaveHedgesDistance</code><span class="sig-paren">(</span><em class="sig-param">output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em>, <em class="sig-param">device=device(type='cpu')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/metrics/regression/wave_hedges_distance.html#WaveHedgesDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.metrics.regression.WaveHedgesDistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Wave Hedges Distance.</p>
 <div class="math">
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>WHD</mtext><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mfrac><mrow><mi mathvariant="normal">∣</mi><msub><mi>A</mi><mi>j</mi></msub><mo>−</mo><msub><mi>P</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><msub><mi>A</mi><mi>j</mi></msub><mo separator="true">,</mo><msub><mi>P</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{WHD} = \sum_{j=1}^n\frac{|A_j - P_j|}{max(A_j, P_j)}
@@ -962,6 +1100,14 @@ This can potentially lead to a memory error if the input data is larger than ava
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> must receive output of the form <code class="docutils literal notranslate"><span class="pre">(y_pred,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">{'y_pred':</span> <span class="pre">y_pred,</span> <span class="pre">'y':</span> <span class="pre">y}</span></code>.</p></li>
 <li><p><cite>y</cite> and <cite>y_pred</cite> must be of same shape <cite>(N, )</cite> or <cite>(N, 1)</cite>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

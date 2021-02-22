@@ -406,7 +406,7 @@ sampler is compatible with distributed configuration.</p>
 
 <dl class="py function">
 <dt id="ignite.distributed.auto.auto_model">
-<code class="sig-prename descclassname">ignite.distributed.auto.</code><code class="sig-name descname">auto_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="p">:</span> <span class="n">torch.nn.modules.module.Module</span></em>, <em class="sig-param"><span class="n">sync_bn</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; torch.nn.modules.module.Module<a class="reference internal" href="_modules/ignite/distributed/auto.html#auto_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.auto.auto_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.auto.</code><code class="sig-name descname">auto_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">sync_bn</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/auto.html#auto_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.auto.auto_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to adapt provided model for non-distributed and distributed configurations (supporting
 all available backends from <a class="reference internal" href="#ignite.distributed.utils.available_backends" title="ignite.distributed.utils.available_backends"><code class="xref py py-meth docutils literal notranslate"><span class="pre">available_backends()</span></code></a>).</p>
 <p>Internally, we perform to following:</p>
@@ -441,12 +441,15 @@ applied before calling <code class="docutils literal notranslate"><span class="p
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>torch.nn.Module</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.nn.modules.module.Module</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.auto.auto_optim">
-<code class="sig-prename descclassname">ignite.distributed.auto.</code><code class="sig-name descname">auto_optim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimizer</span><span class="p">:</span> <span class="n">torch.optim.optimizer.Optimizer</span></em><span class="sig-paren">)</span> &#x2192; torch.optim.optimizer.Optimizer<a class="reference internal" href="_modules/ignite/distributed/auto.html#auto_optim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.auto.auto_optim" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.auto.</code><code class="sig-name descname">auto_optim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimizer</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/auto.html#auto_optim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.auto.auto_optim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to adapt optimizer for non-distributed and distributed configurations (supporting
 all available backends from <a class="reference internal" href="#ignite.distributed.utils.available_backends" title="ignite.distributed.utils.available_backends"><code class="xref py py-meth docutils literal notranslate"><span class="pre">available_backends()</span></code></a>).</p>
 <p>Internally, this method is no-op for non-distributed and torch native distributed configuration.</p>
@@ -467,6 +470,9 @@ its state is broadcasted from rank 0 to all other processes.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Optimizer</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.optim.optimizer.Optimizer</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -475,7 +481,7 @@ its state is broadcasted from rank 0 to all other processes.</p>
 <span id="ignite-distributed-launcher"></span><h2>ignite.distributed.launcher<a class="headerlink" href="#module-ignite.distributed.launcher" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="ignite.distributed.launcher.Parallel">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.distributed.launcher.</code><code class="sig-name descname">Parallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">backend</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nproc_per_node</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nnodes</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">node_rank</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">master_addr</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">master_port</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">spawn_kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/launcher.html#Parallel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.launcher.Parallel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.distributed.launcher.</code><code class="sig-name descname">Parallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">backend</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nproc_per_node</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nnodes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">node_rank</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">master_addr</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">master_port</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">spawn_kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/launcher.html#Parallel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.launcher.Parallel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Distributed launcher context manager to simplify distributed configuration setup for multiple backends:</p>
 <ul class="simple">
 <li><p>backends from native torch distributed configuration: “nccl”, “gloo”, “mpi” (if available)</p></li>
@@ -620,7 +626,7 @@ This option is only supported by native torch distributed module. For other modu
 </dl>
 <dl class="py method">
 <dt id="ignite.distributed.launcher.Parallel.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/launcher.html#Parallel.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.launcher.Parallel.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/launcher.html#Parallel.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.launcher.Parallel.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute <code class="docutils literal notranslate"><span class="pre">func</span></code> with provided arguments in distributed context.</p>
 <p>Example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">training</span><span class="p">(</span><span class="n">local_rank</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -665,7 +671,7 @@ group or spawn multiple processes.</p>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.all_gather">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">all_gather</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>torch.Tensor<span class="p">, </span>numbers.Number<span class="p">, </span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>torch.Tensor<span class="p">, </span>numbers.Number<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#all_gather"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.all_gather" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">all_gather</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#all_gather"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.all_gather" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to perform all gather operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -676,12 +682,15 @@ group or spawn multiple processes.</p>
 torch.Tensor of shape <code class="docutils literal notranslate"><span class="pre">(world_size,</span> <span class="pre">)</span></code> if input is a number or
 List of strings if input is a string</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))">torch.Tensor</a>, <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.9)">numbers.Number</a>, List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.all_reduce">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">all_reduce</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>torch.Tensor<span class="p">, </span>numbers.Number<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">op</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'SUM'</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>torch.Tensor<span class="p">, </span>numbers.Number<span class="p">]</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#all_reduce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.all_reduce" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">all_reduce</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span></em>, <em class="sig-param"><span class="n">op</span><span class="o">=</span><span class="default_value">'SUM'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#all_reduce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.all_reduce" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to perform all reduce operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -694,18 +703,26 @@ Please, several values are not supported for the backend like “horovod”.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>torch.Tensor or number</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))">torch.Tensor</a>, <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.9)">numbers.Number</a>]</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.available_backends">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">available_backends</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#available_backends"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.available_backends" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">available_backends</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#available_backends"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.available_backends" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns available backends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.backend">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">backend</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#backend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.backend" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">backend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#backend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.backend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns computation model’s backend.</p>
 <ul class="simple">
 <li><p><cite>None</cite> for no distributed configuration</p></li>
@@ -716,6 +733,9 @@ Please, several values are not supported for the backend like “horovod”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>str or None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -728,7 +748,7 @@ Please, several values are not supported for the backend like “horovod”.</p>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.broadcast">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">broadcast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>torch.Tensor<span class="p">, </span>numbers.Number<span class="p">, </span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">src</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>torch.Tensor<span class="p">, </span>numbers.Number<span class="p">, </span>str<span class="p">]</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#broadcast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.broadcast" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">broadcast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span></em>, <em class="sig-param"><span class="n">src</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#broadcast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.broadcast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to perform broadcast operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -740,6 +760,9 @@ Make sure to respect dtype of torch tensor input for all processes, otherwise ex
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>torch.Tensor or string or number</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))">torch.Tensor</a>, <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.9)">numbers.Number</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -769,7 +792,7 @@ Make sure to respect dtype of torch tensor input for all processes, otherwise ex
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.device">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">device</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; torch.device<a class="reference internal" href="_modules/ignite/distributed/utils.html#device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.device" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns current device according to current distributed configuration.</p>
 <ul class="simple">
 <li><p><cite>torch.device(“cpu”)</cite> if no distributed configuration or torch native gloo distributed configuration</p></li>
@@ -779,6 +802,9 @@ Make sure to respect dtype of torch tensor input for all processes, otherwise ex
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>torch.device</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>torch.device</p>
 </dd>
 </dl>
 </dd></dl>
@@ -792,52 +818,87 @@ it calls <code class="docutils literal notranslate"><span class="pre">dist.destr
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.get_local_rank">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_local_rank</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/ignite/distributed/utils.html#get_local_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_local_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_local_rank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#get_local_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_local_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns local process rank within current distributed configuration. Returns 0 if no distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.get_nnodes">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_nnodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/ignite/distributed/utils.html#get_nnodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_nnodes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_nnodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#get_nnodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_nnodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns number of nodes within current distributed configuration.
 Returns 1 if no distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.get_node_rank">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_node_rank</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/ignite/distributed/utils.html#get_node_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_node_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_node_rank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#get_node_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_node_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns node rank within current distributed configuration.
 Returns 0 if no distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.get_nproc_per_node">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_nproc_per_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/ignite/distributed/utils.html#get_nproc_per_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_nproc_per_node" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_nproc_per_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#get_nproc_per_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_nproc_per_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns number of processes (or tasks) per node within current distributed configuration.
 Returns 1 if no distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.get_rank">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_rank</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/ignite/distributed/utils.html#get_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_rank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#get_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns process rank within current distributed configuration. Returns 0 if no distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.get_world_size">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_world_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/ignite/distributed/utils.html#get_world_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_world_size" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">get_world_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#get_world_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.get_world_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns world size of current distributed configuration. Returns 1 if no distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.hostname">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">hostname</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/ignite/distributed/utils.html#hostname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.hostname" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">hostname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#hostname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.hostname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns host name for current process within current distributed configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.initialize">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">backend</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.initialize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">backend</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.initialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes distributed configuration according to provided <code class="docutils literal notranslate"><span class="pre">backend</span></code></p>
 <p class="rubric">Examples</p>
 <p>Launch single node multi-GPU training with <code class="docutils literal notranslate"><span class="pre">torch.distributed.launch</span></code> utility.</p>
@@ -879,7 +940,7 @@ Returns 1 if no distributed configuration.</p>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.model_name">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">model_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/ignite/distributed/utils.html#model_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.model_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">model_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#model_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.model_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns distributed configuration name (given by ignite)</p>
 <ul class="simple">
 <li><p><cite>serial</cite> for no distributed configuration</p></li>
@@ -887,11 +948,16 @@ Returns 1 if no distributed configuration.</p>
 <li><p><cite>xla-dist</cite> for XLA distributed configuration</p></li>
 <li><p><cite>horovod-dist</cite> for Horovod distributed framework</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.one_rank_only">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">one_rank_only</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rank</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em>, <em class="sig-param"><span class="n">with_barrier</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#one_rank_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.one_rank_only" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">one_rank_only</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rank</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">with_barrier</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#one_rank_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.one_rank_only" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator to filter handlers wrt a rank number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -918,7 +984,7 @@ Returns 1 if no distributed configuration.</p>
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.set_local_rank">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">set_local_rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#set_local_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.set_local_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">set_local_rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#set_local_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.set_local_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to hint the local rank in case if torch native distributed context is created by user
 without using <code class="xref py py-meth docutils literal notranslate"><span class="pre">initialize()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">spawn()</span></code>.</p>
 <p>Usage:</p>
@@ -950,7 +1016,7 @@ without using <code class="xref py py-meth docutils literal notranslate"><span c
 
 <dl class="py function">
 <dt id="ignite.distributed.utils.spawn">
-<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">spawn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">backend</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span></em>, <em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">Tuple</span></em>, <em class="sig-param"><span class="n">kwargs_dict</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Mapping<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nproc_per_node</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#spawn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.spawn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.distributed.utils.</code><code class="sig-name descname">spawn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">backend</span></em>, <em class="sig-param"><span class="n">fn</span></em>, <em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">kwargs_dict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nproc_per_node</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/distributed/utils.html#spawn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.distributed.utils.spawn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spawns <code class="docutils literal notranslate"><span class="pre">nproc_per_node</span></code> processes that run <code class="docutils literal notranslate"><span class="pre">fn</span></code> with <code class="docutils literal notranslate"><span class="pre">args</span></code>/<code class="docutils literal notranslate"><span class="pre">kwargs_dict</span></code> and initialize
 distributed configuration defined by <code class="docutils literal notranslate"><span class="pre">backend</span></code>.</p>
 <p class="rubric">Examples</p>

@@ -573,8 +573,13 @@ usually be the number of batches in an epoch.</p>
 </div>
 <dl class="py method">
 <dt id="ignite.contrib.handlers.param_scheduler.LRScheduler.get_param">
-<code class="sig-name descname">get_param</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>float<span class="p">, </span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/param_scheduler.html#LRScheduler.get_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.param_scheduler.LRScheduler.get_param" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_param</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/param_scheduler.html#LRScheduler.get_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.param_scheduler.LRScheduler.get_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to get current optimizer’s parameter value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a>, List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -656,7 +661,7 @@ usually be the number of batches in an epoch.</p>
 
 <dl class="py class">
 <dt id="ignite.contrib.handlers.param_scheduler.ParamGroupScheduler">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.handlers.param_scheduler.</code><code class="sig-name descname">ParamGroupScheduler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schedulers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>ignite.contrib.handlers.param_scheduler.ParamScheduler<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">names</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save_history</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/param_scheduler.html#ParamGroupScheduler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.param_scheduler.ParamGroupScheduler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.handlers.param_scheduler.</code><code class="sig-name descname">ParamGroupScheduler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schedulers</span></em>, <em class="sig-param"><span class="n">names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save_history</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/param_scheduler.html#ParamGroupScheduler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.param_scheduler.ParamGroupScheduler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scheduler helper to group multiple schedulers into one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -755,11 +760,14 @@ sets defined absolute values.</p>
 </div>
 <dl class="py method">
 <dt id="ignite.contrib.handlers.param_scheduler.ParamScheduler.get_param">
-<em class="property">abstract </em><code class="sig-name descname">get_param</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">, </span>float<span class="p">]</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/param_scheduler.html#ParamScheduler.get_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.param_scheduler.ParamScheduler.get_param" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">get_param</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/param_scheduler.html#ParamScheduler.get_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.param_scheduler.ParamScheduler.get_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to get current optimizer’s parameter values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>list of params, or scalar param</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a>], <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1500,17 +1508,19 @@ For example, <cite>log_dir</cite> to setup path to the directory where to log.</
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.tensorboard_logger.TensorboardLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.tensorboard_logger.TensorboardLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.tensorboard_logger.TensorboardLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1521,17 +1531,19 @@ For example, <cite>log_dir</cite> to setup path to the directory where to log.</
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.tensorboard_logger.TensorboardLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.tensorboard_logger.TensorboardLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.tensorboard_logger.TensorboardLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1603,7 +1615,7 @@ produce a scalar and then logs the scalar.</p>
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.tensorboard_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.tensorboard_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.tensorboard_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.tensorboard_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.tensorboard_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -1615,6 +1627,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1967,17 +1982,19 @@ log less frequently or set <cite>num_workers=1</cite>.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.visdom_logger.VisdomLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.visdom_logger.VisdomLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.visdom_logger.VisdomLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1988,17 +2005,19 @@ log less frequently or set <cite>num_workers=1</cite>.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.visdom_logger.VisdomLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.visdom_logger.VisdomLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.visdom_logger.VisdomLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2062,7 +2081,7 @@ produce a scalar and then logs the scalar.</p>
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.visdom_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.visdom_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.visdom_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.visdom_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.visdom_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -2074,6 +2093,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2285,17 +2307,19 @@ You can save model checkpoints to a Neptune server:</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.neptune_logger.NeptuneLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2306,17 +2330,19 @@ You can save model checkpoints to a Neptune server:</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.neptune_logger.NeptuneLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2383,11 +2409,14 @@ NeptuneLogger class.</p>
 <a class="reference external" href="https://ui.neptune.ai/o/shared/org/pytorch-ignite-integration/e/PYTOR1-18/charts">https://ui.neptune.ai/o/shared/org/pytorch-ignite-integration/e/PYTOR1-18/charts</a></p>
 <dl class="py method">
 <dt id="ignite.contrib.handlers.neptune_logger.NeptuneSaver.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/handlers/neptune_logger.html#NeptuneSaver.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneSaver.remove" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/neptune_logger.html#NeptuneSaver.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneSaver.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to remove saved checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – filename associated with checkpoint.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2581,7 +2610,7 @@ produce a scalar and then logs the scalar.</p>
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.neptune_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.neptune_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.neptune_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -2593,6 +2622,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2693,17 +2725,19 @@ and validation.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.mlflow_logger.MLflowLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.mlflow_logger.MLflowLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.mlflow_logger.MLflowLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2714,17 +2748,19 @@ and validation.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.mlflow_logger.MLflowLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.mlflow_logger.MLflowLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.mlflow_logger.MLflowLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2861,7 +2897,7 @@ uses function output as global_step. To setup global step from another engine, p
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.mlflow_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.mlflow_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.mlflow_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.mlflow_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.mlflow_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -2873,6 +2909,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2984,8 +3023,18 @@ or a single scalar, which will be displayed with the default name <cite>output</
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.tqdm_logger.ProgressBar.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/tqdm_logger.html#ProgressBar.attach_opt_params_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.tqdm_logger.ProgressBar.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/tqdm_logger.html#ProgressBar.attach_opt_params_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.tqdm_logger.ProgressBar.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Intentionally empty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – </p></li>
+<li><p><strong>event_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -3225,17 +3274,19 @@ and validation.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.polyaxon_logger.PolyaxonLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.polyaxon_logger.PolyaxonLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.polyaxon_logger.PolyaxonLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3246,17 +3297,19 @@ and validation.</p>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.polyaxon_logger.PolyaxonLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.polyaxon_logger.PolyaxonLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.polyaxon_logger.PolyaxonLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3269,7 +3322,7 @@ and validation.</p>
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.polyaxon_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.polyaxon_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.polyaxon_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.polyaxon_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.polyaxon_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -3281,6 +3334,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3566,17 +3622,19 @@ files saved there at the end of the run. You can just use the <cite>wandb_logger
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.wandb_logger.WandBLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.wandb_logger.WandBLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.wandb_logger.WandBLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3587,17 +3645,19 @@ files saved there at the end of the run. You can just use the <cite>wandb_logger
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.wandb_logger.WandBLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.wandb_logger.WandBLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.wandb_logger.WandBLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3610,7 +3670,7 @@ files saved there at the end of the run. You can just use the <cite>wandb_logger
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.wandb_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.wandb_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.wandb_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.wandb_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.wandb_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -3622,6 +3682,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3937,17 +4000,19 @@ script’s file name is used. (Optional)</p></li>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsLogger.attach_opt_params_handler">
-<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_opt_params_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.attach_opt_params_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OptimizerParamsHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OptimizerParamsHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OptimizerParamsHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3958,17 +4023,19 @@ script’s file name is used. (Optional)</p></li>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsLogger.attach_output_handler">
-<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach_output_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">event_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.attach_output_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut method to attach <cite>OutputHandler</cite> to the logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine object.</p></li>
-<li><p><strong>event_name</strong> – event to attach the logging handler to. Valid events are from
+<li><p><strong>event_name</strong> (<em>Any</em>) – event to attach the logging handler to. Valid events are from
 <a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <cite>event_name</cite> added by
 <a class="reference internal" href="../engine.html#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
 <li><p><strong>*args</strong> – args to initialize <cite>OutputHandler</cite></p></li>
 <li><p><strong>**kwargs</strong> – kwargs to initialize <cite>OutputHandler</cite></p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Mapping</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3979,7 +4046,7 @@ script’s file name is used. (Optional)</p></li>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsLogger.bypass_mode">
-<em class="property">classmethod </em><code class="sig-name descname">bypass_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsLogger.bypass_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.bypass_mode" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">bypass_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsLogger.bypass_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.bypass_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the bypass mode state.
 .. note:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`GITHUB_ACTIONS` env will automatically set bypass_mode to ``True``
@@ -3990,22 +4057,33 @@ unless overridden specifically with ``TrainsLogger.set_bypass_mode(False)``.
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>If True, all outside communication is skipped.</p>
 </dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsLogger.set_bypass_mode">
-<em class="property">classmethod </em><code class="sig-name descname">set_bypass_mode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bypass</span><span class="p">:</span> <span class="n">bool</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsLogger.set_bypass_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.set_bypass_mode" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">set_bypass_mode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bypass</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsLogger.set_bypass_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsLogger.set_bypass_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Will bypass all outside communication, and will drop all logs.
 Should only be used in “standalone mode”, when there is no access to the <em>trains-server</em>.
 :param bypass: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, all outside communication is skipped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bypass</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsSaver">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.handlers.trains_logger.</code><code class="sig-name descname">TrainsSaver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span><span class="p">:</span> <span class="n">ignite.contrib.handlers.trains_logger.TrainsLogger</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_uri</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dirname</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsSaver" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.handlers.trains_logger.</code><code class="sig-name descname">TrainsSaver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_uri</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dirname</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsSaver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handler that saves input checkpoint as Trains artifacts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -4046,7 +4124,7 @@ directory will be created.</p></li>
 </div>
 <dl class="py method">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsSaver.get_local_copy">
-<code class="sig-name descname">get_local_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsSaver.get_local_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsSaver.get_local_copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_local_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsSaver.get_local_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsSaver.get_local_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get artifact local copy.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -4059,16 +4137,22 @@ directory will be created.</p></li>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a local path to a downloaded copy of the artifact</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="ignite.contrib.handlers.trains_logger.TrainsSaver.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsSaver.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsSaver.remove" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/trains_logger.html#TrainsSaver.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.TrainsSaver.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to remove saved checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – filename associated with checkpoint.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -4144,7 +4228,7 @@ produce a scalar and then logs the scalar.</p>
 
 <dl class="py function">
 <dt id="ignite.contrib.handlers.trains_logger.global_step_from_engine">
-<code class="sig-prename descclassname">ignite.contrib.handlers.trains_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span><span class="p">:</span> <span class="n">ignite.engine.engine.Engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.contrib.handlers.trains_logger.</code><code class="sig-name descname">global_step_from_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">custom_event_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/handlers.html#global_step_from_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.trains_logger.global_step_from_engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to setup <cite>global_step_transform</cite> function using another engine.
 This can be helpful for logging trainer epoch/iteration while output handler is attached to an evaluator.</p>
 <dl class="field-list simple">
@@ -4156,6 +4240,9 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>global step</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Callable</p>
 </dd>
 </dl>
 </dd></dl>

@@ -295,25 +295,60 @@
 <p>Module with helper methods</p>
 <span class="target" id="module-ignite.utils"></span><dl class="py function">
 <dt id="ignite.utils.apply_to_tensor">
-<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">apply_to_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>torch.Tensor<span class="p">, </span>collections.abc.Sequence<span class="p">, </span>collections.abc.Mapping<span class="p">, </span>str<span class="p">, </span>bytes<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>torch.Tensor<span class="p">, </span>collections.abc.Sequence<span class="p">, </span>collections.abc.Mapping<span class="p">, </span>str<span class="p">, </span>bytes<span class="p">]</span><a class="reference internal" href="_modules/ignite/utils.html#apply_to_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.apply_to_tensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">apply_to_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_</span></em>, <em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/utils.html#apply_to_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.apply_to_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a function on a tensor or mapping, or sequence of tensors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.Tensor</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)"><em>collections.abc.Sequence</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)"><em>collections.abc.Mapping</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.9)"><em>bytes</em></a><em>]</em>) – </p></li>
+<li><p><strong>func</strong> (<em>Callable</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))">torch.Tensor</a>, <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)">collections.abc.Sequence</a>, <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)">collections.abc.Mapping</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.9)">bytes</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.utils.apply_to_type">
-<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">apply_to_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>Any<span class="p">, </span>collections.abc.Sequence<span class="p">, </span>collections.abc.Mapping<span class="p">, </span>str<span class="p">, </span>bytes<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">input_type</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>Type<span class="p">, </span>Tuple<span class="p">[</span>Type<span class="p">[</span>Any<span class="p">]</span><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>Any<span class="p">, </span>collections.abc.Sequence<span class="p">, </span>collections.abc.Mapping<span class="p">, </span>str<span class="p">, </span>bytes<span class="p">]</span><a class="reference internal" href="_modules/ignite/utils.html#apply_to_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.apply_to_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">apply_to_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_</span></em>, <em class="sig-param"><span class="n">input_type</span></em>, <em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/utils.html#apply_to_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.apply_to_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a function on a object of <cite>input_type</cite> or mapping, or sequence of objects of <cite>input_type</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_</strong> (<em>Union</em><em>[</em><em>Any</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)"><em>collections.abc.Sequence</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)"><em>collections.abc.Mapping</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.9)"><em>bytes</em></a><em>]</em>) – </p></li>
+<li><p><strong>input_type</strong> (<em>Union</em><em>[</em><em>Type</em><em>, </em><em>Tuple</em><em>[</em><em>Type</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>func</strong> (<em>Callable</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[Any, <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)">collections.abc.Sequence</a>, <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)">collections.abc.Mapping</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.9)">bytes</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.utils.convert_tensor">
-<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">convert_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>torch.Tensor<span class="p">, </span>collections.abc.Sequence<span class="p">, </span>collections.abc.Mapping<span class="p">, </span>str<span class="p">, </span>bytes<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">device</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Union<span class="p">[</span>str<span class="p">, </span>torch.device<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">non_blocking</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>torch.Tensor<span class="p">, </span>collections.abc.Sequence<span class="p">, </span>collections.abc.Mapping<span class="p">, </span>str<span class="p">, </span>bytes<span class="p">]</span><a class="reference internal" href="_modules/ignite/utils.html#convert_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.convert_tensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">convert_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_</span></em>, <em class="sig-param"><span class="n">device</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">non_blocking</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/utils.html#convert_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.convert_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move tensors to relevant device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.Tensor</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)"><em>collections.abc.Sequence</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)"><em>collections.abc.Mapping</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.9)"><em>bytes</em></a><em>]</em>) – </p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))">torch.Tensor</a>, <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)">collections.abc.Sequence</a>, <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)">collections.abc.Mapping</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.9)">bytes</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ignite.utils.setup_logger">
-<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">setup_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">level</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">20</span></em>, <em class="sig-param"><span class="n">format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'%(asctime)s %(name)s %(levelname)s: %(message)s'</span></em>, <em class="sig-param"><span class="n">filepath</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">distributed_rank</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; logging.Logger<a class="reference internal" href="_modules/ignite/utils.html#setup_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.setup_logger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">setup_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'%(asctime)s %(name)s %(levelname)s: %(message)s'</span></em>, <em class="sig-param"><span class="n">filepath</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">distributed_rank</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/utils.html#setup_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.setup_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setups logger: name, level, format etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -329,6 +364,9 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>logging.Logger</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.Logger" title="(in Python v3.9)">logging.Logger</a></p>
 </dd>
 </dl>
 <p>For example, to improve logs readability when training with a trainer and evaluator:</p>
@@ -354,10 +392,21 @@
 
 <dl class="py function">
 <dt id="ignite.utils.to_onehot">
-<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">to_onehot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indices</span><span class="p">:</span> <span class="n">torch.Tensor</span></em>, <em class="sig-param"><span class="n">num_classes</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; torch.Tensor<a class="reference internal" href="_modules/ignite/utils.html#to_onehot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.to_onehot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ignite.utils.</code><code class="sig-name descname">to_onehot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indices</span></em>, <em class="sig-param"><span class="n">num_classes</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/utils.html#to_onehot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.utils.to_onehot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a tensor of indices of any shape <cite>(N, …)</cite> to a
 tensor of one-hot indicators of shape <cite>(N, num_classes, …) and of type uint8. Output’s device is equal to the
 input’s device</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>indices</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.Tensor</em></a>) – </p></li>
+<li><p><strong>num_classes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))">torch.Tensor</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
