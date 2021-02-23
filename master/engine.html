@@ -387,7 +387,7 @@
 <dd><p>Runs a given <code class="docutils literal notranslate"><span class="pre">process_function</span></code> over each batch of a dataset, emitting events as it goes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>process_function</strong> (<em>callable</em>) – A function receiving a handle to the engine and the current batch
+<dd class="field-odd"><p><strong>process_function</strong> (<em>Callable</em>) – A function receiving a handle to the engine and the current batch
 in each iteration, and returns data to be stored in the engine’s state.</p>
 </dd>
 </dl>
@@ -397,22 +397,12 @@ in each iteration, and returns data to be stored in the engine’s state.</p>
 <dd><p>object that is used to pass internal and user-defined state between event handlers.
 It is created with the engine and its attributes (e.g. <code class="docutils literal notranslate"><span class="pre">state.iteration</span></code>, <code class="docutils literal notranslate"><span class="pre">state.epoch</span></code> etc) are reset
 on every <a class="reference internal" href="#ignite.engine.engine.Engine.run" title="ignite.engine.engine.Engine.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ignite.engine.events.State" title="ignite.engine.events.State">State</a></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="ignite.engine.engine.Engine.last_event_name">
 <code class="sig-name descname">last_event_name</code><a class="headerlink" href="#ignite.engine.engine.Engine.last_event_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>last event name triggered by the engine.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ignite.engine.events.Events" title="ignite.engine.events.Events">Events</a></p>
-</dd>
-</dl>
 </dd></dl>
 
 <p class="rubric">Examples</p>
@@ -502,17 +492,18 @@ on every <a class="reference internal" href="#ignite.engine.engine.Engine.run" t
 <li><p><strong>event_name</strong> (<em>Any</em>) – An event or a list of events to attach the handler. Valid events are
 from <a class="reference internal" href="#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a> or any <code class="docutils literal notranslate"><span class="pre">event_name</span></code> added by
 <a class="reference internal" href="#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
-<li><p><strong>handler</strong> (<em>callable</em>) – the callable event handler that should be invoked. No restrictions on its signature.
+<li><p><strong>handler</strong> (<em>Callable</em>) – the callable event handler that should be invoked. No restrictions on its signature.
 The first argument can be optionally <cite>engine</cite>, the <a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a> object,
 handler is bound to.</p></li>
-<li><p><strong>*args</strong> – optional args to be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
-<li><p><strong>**kwargs</strong> – optional keyword args to be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
-<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – optional args to be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – optional keyword args to be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#ignite.engine.events.RemovableEventHandle" title="ignite.engine.events.RemovableEventHandle">ignite.engine.events.RemovableEventHandle</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#ignite.engine.events.RemovableEventHandle" title="ignite.engine.events.RemovableEventHandle"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemovableEventHandle</span></code></a>, which can be used to remove the handler.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ignite.engine.events.RemovableEventHandle" title="ignite.engine.events.RemovableEventHandle">ignite.engine.events.RemovableEventHandle</a></p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -520,22 +511,6 @@ handler is bound to.</p></li>
 <p>Note that other arguments can be passed to the handler in addition to the <cite>*args</cite> and  <cite>**kwargs</cite>
 passed here, for example during <code class="xref py py-attr docutils literal notranslate"><span class="pre">EXCEPTION_RAISED</span></code>.</p>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RemovableEventHandle</span></code>, which can be used to remove the handler.</p>
-</dd>
-<dt class="field-even">Parameters</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>event_name</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>handler</strong> (<em>Callable</em>) – </p></li>
-<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ignite.engine.events.RemovableEventHandle" title="ignite.engine.events.RemovableEventHandle">ignite.engine.events.RemovableEventHandle</a></p>
-</dd>
-</dl>
 <p>Example usage:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">process_function</span><span class="p">)</span>
 
@@ -592,7 +567,7 @@ events are from <a class="reference internal" href="#ignite.engine.events.Events
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>handler</strong> (<em>callable</em>) – the callable event handler.</p></li>
+<li><p><strong>handler</strong> (<em>Callable</em>) – the callable event handler.</p></li>
 <li><p><strong>event_name</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – The event the handler attached to. Set this
 to <code class="docutils literal notranslate"><span class="pre">None</span></code> to search all events.</p></li>
 </ul>
@@ -613,7 +588,7 @@ Iteration and epoch values are 0-based: the first iteration or epoch is zero.</p
 <p>This method does not remove any custom attributes added by user.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>state_dict</strong> (<em>Mapping</em>) – a dict with parameters</p>
+<dd class="field-odd"><p><strong>state_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.9)"><em>collections.abc.Mapping</em></a>) – a dict with parameters</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -640,10 +615,8 @@ Iteration and epoch values are 0-based: the first iteration or epoch is zero.</p
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>event_name</strong> (<em>Any</em>) – An event to attach the handler to. Valid events are from <a class="reference internal" href="#ignite.engine.events.Events" title="ignite.engine.events.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a>
 or any <code class="docutils literal notranslate"><span class="pre">event_name</span></code> added by <a class="reference internal" href="#ignite.engine.engine.Engine.register_events" title="ignite.engine.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>.</p></li>
-<li><p><strong>*args</strong> – optional args to be passed to <cite>handler</cite>.</p></li>
-<li><p><strong>**kwargs</strong> – optional keyword args to be passed to <cite>handler</cite>.</p></li>
-<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>args</strong> (<em>Any</em>) – optional args to be passed to <cite>handler</cite>.</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – optional keyword args to be passed to <cite>handler</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -676,10 +649,9 @@ configurable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>*event_names</strong> (<em>iterable</em>) – Defines the name of the event being supported. New events can be a str
+<li><p><strong>event_names</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference internal" href="#ignite.engine.events.EventEnum" title="ignite.engine.events.EventEnum"><em>ignite.engine.events.EventEnum</em></a><em>]</em><em>]</em>) – Defines the name of the event being supported. New events can be a str
 or an object derived from <a class="reference internal" href="#ignite.engine.events.EventEnum" title="ignite.engine.events.EventEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventEnum</span></code></a>. See example below.</p></li>
-<li><p><strong>event_to_attr</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – A dictionary to map an event to a state attribute.</p></li>
-<li><p><strong>event_names</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference internal" href="#ignite.engine.events.EventEnum" title="ignite.engine.events.EventEnum"><em>ignite.engine.events.EventEnum</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>event_to_attr</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>]</em>) – A dictionary to map an event to a state attribute.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -749,7 +721,7 @@ or an object derived from <a class="reference internal" href="#ignite.engine.eve
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>handler</strong> (<em>callable</em>) – the callable event handler that should be removed</p></li>
+<li><p><strong>handler</strong> (<em>Callable</em>) – the callable event handler that should be removed</p></li>
 <li><p><strong>event_name</strong> (<em>Any</em>) – The event the handler attached to.</p></li>
 </ul>
 </dd>
@@ -776,15 +748,15 @@ provided, state is kept and used in the function.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>Iterable</em>) – Collection of batches allowing repeated iteration (e.g., list or <cite>DataLoader</cite>).</p></li>
-<li><p><strong>max_epochs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Max epochs to run for (default: None).
+<li><p><strong>max_epochs</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>]</em>) – Max epochs to run for (default: None).
 If a new state should be created (first run or run again from ended engine), it’s default value is 1.
 If run is resuming from a state, provided <cite>max_epochs</cite> will be taken into account and should be larger
 than <cite>engine.state.max_epochs</cite>.</p></li>
-<li><p><strong>epoch_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of iterations to count as one epoch. By default, it can be set as
+<li><p><strong>epoch_length</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>]</em>) – Number of iterations to count as one epoch. By default, it can be set as
 <cite>len(data)</cite>. If <cite>data</cite> is an iterator and <cite>epoch_length</cite> is not set, then it will be automatically
 determined as the iteration on which data iterator raises <cite>StopIteration</cite>.
 This argument should not change if run is resuming from a state.</p></li>
-<li><p><strong>max_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of iterations to run for.
+<li><p><strong>max_iters</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>]</em>) – Number of iterations to run for.
 <cite>max_iters</cite> and <cite>max_epochs</cite> are mutually exclusive; only one of the two arguments should be provided.</p></li>
 </ul>
 </dd>
@@ -825,7 +797,7 @@ store output batch in <cite>engine.state.batch</cite>. Latter is passed as usual
 from newly provided data. Please, note that epoch length is not modified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>Iterable</em>) – Collection of batches allowing repeated iteration (e.g., list or <cite>DataLoader</cite>).</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>, </em><em>torch.utils.data.dataloader.DataLoader</em><em>]</em>) – Collection of batches allowing repeated iteration (e.g., list or <cite>DataLoader</cite>).</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -921,32 +893,35 @@ other state values defined by <cite>engine.state_dict_user_keys</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.nn.Module</em></a>) – the model to train.</p></li>
-<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.optim.Optimizer</em></a>) – the optimizer to use.</p></li>
-<li><p><strong>loss_fn</strong> (<em>torch.nn loss function</em>) – the loss function to use.</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – the model to train.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.optimizer.Optimizer</em>) – the optimizer to use.</p></li>
+<li><p><strong>loss_fn</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>torch.nn.modules.module.Module</em><em>]</em>) – the loss function to use.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – device type specification (default: None).
 Applies to batches after starting the engine. Model <em>will not</em> be moved.
 Device can be CPU, GPU or TPU.</p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
 with respect to the host. For other cases, this argument has no effect.</p></li>
-<li><p><strong>prepare_batch</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
+<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
 tuple of tensors <cite>(batch_x, batch_y)</cite>.</p></li>
-<li><p><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
 to be assigned to engine’s state.output after each iteration. Default is returning <cite>loss.item()</cite>.</p></li>
-<li><p><strong>deterministic</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True, returns deterministic engine of type
+<li><p><strong>deterministic</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True, returns deterministic engine of type
 <a class="reference internal" href="#ignite.engine.deterministic.DeterministicEngine" title="ignite.engine.deterministic.DeterministicEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeterministicEngine</span></code></a>, otherwise <a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a>
 (default: False).</p></li>
-<li><p><strong>amp_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – can be <code class="docutils literal notranslate"><span class="pre">amp</span></code> or <code class="docutils literal notranslate"><span class="pre">apex</span></code>, model and optimizer will be casted to float16 using
+<li><p><strong>amp_mode</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – can be <code class="docutils literal notranslate"><span class="pre">amp</span></code> or <code class="docutils literal notranslate"><span class="pre">apex</span></code>, model and optimizer will be casted to float16 using
 <a class="reference external" href="https://pytorch.org/docs/stable/amp.html">torch.cuda.amp</a> for <code class="docutils literal notranslate"><span class="pre">amp</span></code> and
 using <a class="reference external" href="https://nvidia.github.io/apex">apex</a> for <code class="docutils literal notranslate"><span class="pre">apex</span></code>. (default: None)</p></li>
-<li><p><strong>scaler</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/amp.html#torch.cuda.amp.GradScaler" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.cuda.amp.GradScaler</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – GradScaler instance for gradient scaling if <cite>torch&gt;=1.6.0</cite>
+<li><p><strong>scaler</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><a class="reference external" href="https://pytorch.org/docs/stable/amp.html#torch.cuda.amp.GradScaler" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.cuda.amp.GradScaler</em></a><em>]</em>) – GradScaler instance for gradient scaling if <cite>torch&gt;=1.6.0</cite>
 and <code class="docutils literal notranslate"><span class="pre">amp_mode</span></code> is <code class="docutils literal notranslate"><span class="pre">amp</span></code>. If <code class="docutils literal notranslate"><span class="pre">amp_mode</span></code> is <code class="docutils literal notranslate"><span class="pre">apex</span></code>, this argument will be ignored.
 If True, will create default GradScaler. If GradScaler instance is passed, it will be used instead.
 (default: False)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine">ignite.engine.engine.Engine</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a trainer engine with supervised update function.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine">ignite.engine.engine.Engine</a></p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -977,28 +952,6 @@ since <code class="docutils literal notranslate"><span class="pre">amp.initializ
 and optimizer(s), but before you send your model through any DistributedDataParallel wrapper.</p>
 <p>See more: <a class="reference external" href="https://nvidia.github.io/apex/amp.html#module-apex.amp">https://nvidia.github.io/apex/amp.html#module-apex.amp</a></p>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a trainer engine with supervised update function.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine">Engine</a></p>
-</dd>
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – </p></li>
-<li><p><strong>optimizer</strong> (<em>torch.optim.optimizer.Optimizer</em>) – </p></li>
-<li><p><strong>loss_fn</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>torch.nn.modules.module.Module</em><em>]</em>) – </p></li>
-<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p></li>
-<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – </p></li>
-<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
-<li><p><strong>deterministic</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p></li>
-<li><p><strong>amp_mode</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – </p></li>
-<li><p><strong>scaler</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><a class="reference external" href="https://pytorch.org/docs/stable/amp.html#torch.cuda.amp.GradScaler" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.cuda.amp.GradScaler</em></a><em>]</em>) – </p></li>
-</ul>
-</dd>
-</dl>
 <div class="versionchanged">
 <ul>
 <span class="versionmodified changed">Changed in version 0.5.0: </span><li><p>Added <code class="docutils literal notranslate"><span class="pre">amp_mode</span></code> argument for automatic mixed precision.</p></li>
@@ -1014,21 +967,24 @@ and optimizer(s), but before you send your model through any DistributedDataPara
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<cite>torch.nn.Module</cite>) – the model to train.</p></li>
-<li><p><strong>metrics</strong> (dict of str - <a class="reference internal" href="metrics.html#ignite.metrics.Metric" title="ignite.metrics.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a>) – a map of metric names to Metrics.</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – the model to train.</p></li>
+<li><p><strong>metrics</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>ignite.metrics.metric.Metric</em><em>]</em><em>]</em>) – a map of metric names to Metrics.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – device type specification (default: None).
 Applies to batches after starting the engine. Model <em>will not</em> be moved.</p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
 with respect to the host. For other cases, this argument has no effect.</p></li>
-<li><p><strong>prepare_batch</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
+<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
 tuple of tensors <cite>(batch_x, batch_y)</cite>.</p></li>
-<li><p><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives ‘x’, ‘y’, ‘y_pred’ and returns value
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – function that receives ‘x’, ‘y’, ‘y_pred’ and returns value
 to be assigned to engine’s state.output after each iteration. Default is returning <cite>(y_pred, y,)</cite> which fits
 output expected by metrics. If you change it you should use <cite>output_transform</cite> in metrics.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine">ignite.engine.engine.Engine</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an evaluator engine with supervised inference function.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine">ignite.engine.engine.Engine</a></p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -1047,24 +1003,6 @@ The <cite>model</cite> should be moved by the user before creating an optimizer.
 <li><p><a class="reference external" href="https://github.com/pytorch/pytorch/issues/7844#issuecomment-503713840">PyTorch’s Explanation</a></p></li>
 </ul>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>an evaluator engine with supervised inference function.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine">Engine</a></p>
-</dd>
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – </p></li>
-<li><p><strong>metrics</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>ignite.metrics.metric.Metric</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p></li>
-<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – </p></li>
-<li><p><strong>output_transform</strong> (<em>Callable</em>) – </p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1074,17 +1012,17 @@ The <cite>model</cite> should be moved by the user before creating an optimizer.
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.nn.Module</em></a>) – the model to train.</p></li>
-<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.optim.Optimizer</em></a>) – the optimizer to use.</p></li>
-<li><p><strong>loss_fn</strong> (<em>torch.nn loss function</em>) – the loss function to use.</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – the model to train.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.optimizer.Optimizer</em>) – the optimizer to use.</p></li>
+<li><p><strong>loss_fn</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>torch.nn.modules.module.Module</em><em>]</em>) – the loss function to use.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – device type specification (default: None).
 Applies to batches after starting the engine. Model <em>will not</em> be moved.
 Device can be CPU, GPU.</p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
 with respect to the host. For other cases, this argument has no effect.</p></li>
-<li><p><strong>prepare_batch</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
+<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
 tuple of tensors <cite>(batch_x, batch_y)</cite>.</p></li>
-<li><p><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
 to be assigned to engine’s state.output after each iteration. Default is returning <cite>loss.item()</cite>.</p></li>
 </ul>
 </dd>
@@ -1118,19 +1056,19 @@ to be assigned to engine’s state.output after each iteration. Default is retur
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.nn.Module</em></a>) – the model to train.</p></li>
-<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.optim.Optimizer</em></a>) – the optimizer to use.</p></li>
-<li><p><strong>loss_fn</strong> (<em>torch.nn loss function</em>) – the loss function to use.</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – the model to train.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.optimizer.Optimizer</em>) – the optimizer to use.</p></li>
+<li><p><strong>loss_fn</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>torch.nn.modules.module.Module</em><em>]</em>) – the loss function to use.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – device type specification (default: None).
 Applies to batches after starting the engine. Model <em>will not</em> be moved.
 Device can be CPU, GPU.</p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
 with respect to the host. For other cases, this argument has no effect.</p></li>
-<li><p><strong>prepare_batch</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
+<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
 tuple of tensors <cite>(batch_x, batch_y)</cite>.</p></li>
-<li><p><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
 to be assigned to engine’s state.output after each iteration. Default is returning <cite>loss.item()</cite>.</p></li>
-<li><p><strong>scaler</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/amp.html#torch.cuda.amp.GradScaler" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.cuda.amp.GradScaler</em></a><em>, </em><em>optional</em>) – GradScaler instance for gradient scaling. (default: None)</p></li>
+<li><p><strong>scaler</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://pytorch.org/docs/stable/amp.html#torch.cuda.amp.GradScaler" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.cuda.amp.GradScaler</em></a><em>]</em>) – GradScaler instance for gradient scaling. (default: None)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1164,17 +1102,17 @@ to be assigned to engine’s state.output after each iteration. Default is retur
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.nn.Module</em></a>) – the model to train.</p></li>
-<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.optim.Optimizer</em></a>) – the optimizer to use.</p></li>
-<li><p><strong>loss_fn</strong> (<em>torch.nn loss function</em>) – the loss function to use.</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – the model to train.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.optimizer.Optimizer</em>) – the optimizer to use.</p></li>
+<li><p><strong>loss_fn</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>torch.nn.modules.module.Module</em><em>]</em>) – the loss function to use.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – device type specification (default: None).
 Applies to batches after starting the engine. Model <em>will not</em> be moved.
 Device can be CPU, GPU.</p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
 with respect to the host. For other cases, this argument has no effect.</p></li>
-<li><p><strong>prepare_batch</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
+<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
 tuple of tensors <cite>(batch_x, batch_y)</cite>.</p></li>
-<li><p><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
 to be assigned to engine’s state.output after each iteration. Default is returning <cite>loss.item()</cite>.</p></li>
 </ul>
 </dd>
@@ -1208,17 +1146,17 @@ to be assigned to engine’s state.output after each iteration. Default is retur
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.nn.Module</em></a>) – the model to train.</p></li>
-<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.optim.Optimizer</em></a>) – the optimizer to use.</p></li>
-<li><p><strong>loss_fn</strong> (<em>torch.nn loss function</em>) – the loss function to use.</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+<li><p><strong>model</strong> (<em>torch.nn.modules.module.Module</em>) – the model to train.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.optimizer.Optimizer</em>) – the optimizer to use.</p></li>
+<li><p><strong>loss_fn</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>torch.nn.modules.module.Module</em><em>]</em>) – the loss function to use.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>torch.device</em><em>]</em><em>]</em>) – device type specification (default: None).
 Applies to batches after starting the engine. Model <em>will not</em> be moved.
 Device can be CPU, TPU.</p></li>
-<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
+<li><p><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True and this copy is between CPU and GPU, the copy may occur asynchronously
 with respect to the host. For other cases, this argument has no effect.</p></li>
-<li><p><strong>prepare_batch</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
+<li><p><strong>prepare_batch</strong> (<em>Callable</em>) – function that receives <cite>batch</cite>, <cite>device</cite>, <cite>non_blocking</cite> and outputs
 tuple of tensors <cite>(batch_x, batch_y)</cite>.</p></li>
-<li><p><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
+<li><p><strong>output_transform</strong> (<em>Callable</em>) – function that receives ‘x’, ‘y’, ‘y_pred’, ‘loss’ and returns value
 to be assigned to engine’s state.output after each iteration. Default is returning <cite>loss.item()</cite>.</p></li>
 </ul>
 </dd>
@@ -1306,10 +1244,10 @@ be run at the current event (if the event type is correct)</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The actual enum value. Only needed for internal use. Do not touch!</p></li>
-<li><p><strong>event_filter</strong> (<em>callable</em>) – A function taking the engine and the current event value as input and returning a
+<li><p><strong>event_filter</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>]</em>) – A function taking the engine and the current event value as input and returning a
 boolean to indicate whether this event should be executed. Defaults to None, which will result to a
 function that always returns <cite>True</cite></p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The enum-name of the current object. Only needed for internal use. Do not touch!</p></li>
+<li><p><strong>name</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – The enum-name of the current object. Only needed for internal use. Do not touch!</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -1510,7 +1448,7 @@ contains the following attributes:</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kwargs</strong> (<em>Any</em>) – </p>
+<dd class="field-odd"><p><strong>kwargs</strong> (<em>Any</em>) – keyword arguments to be defined as State attributes.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -1616,7 +1554,8 @@ dataflow restart) and using torch <cite>DataLoader</cite> with <cite>num_workers
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>process_function</strong> (<em>Callable</em>) – </p>
+<dd class="field-odd"><p><strong>process_function</strong> (<em>Callable</em>) – A function receiving a handle to the engine and the current batch
+in each iteration, and returns data to be stored in the engine’s state.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -1658,9 +1597,8 @@ other state values defined by <cite>engine.state_dict_user_keys</cite></p>
 <em class="property">class </em><code class="sig-prename descclassname">ignite.engine.deterministic.</code><code class="sig-name descname">ReproducibleBatchSampler</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/engine/deterministic.html#ReproducibleBatchSampler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.engine.deterministic.ReproducibleBatchSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reproducible batch sampler. This class internally iterates and stores indices of the input batch sampler.
 This helps to start providing data batches from an iteration in a deterministic way.</p>
-<p>Usage:</p>
-<blockquote>
-<div><p>Setup dataloader with <cite>ReproducibleBatchSampler</cite> and start providing data batches from an iteration:</p>
+<p class="rubric">Example</p>
+<p>Setup dataloader with <cite>ReproducibleBatchSampler</cite> and start providing data batches from an iteration</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ignite.engine.deterministic</span> <span class="kn">import</span> <span class="n">update_dataloader</span>
 
 <span class="n">dataloader</span> <span class="o">=</span> <span class="n">update_dataloader</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">ReproducibleBatchSampler</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">batch_sampler</span><span class="p">))</span>
@@ -1668,13 +1606,11 @@ This helps to start providing data batches from an iteration in a deterministic 
 <span class="n">dataloader</span><span class="o">.</span><span class="n">batch_sampler</span><span class="o">.</span><span class="n">start_iteration</span> <span class="o">=</span> <span class="n">start_iteration</span>
 </pre></div>
 </div>
-</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>batch_sampler</strong> (<em>torch.utils.data.sampler.BatchSampler</em>) – batch sampler same as used with
-<cite>torch.utils.data.DataLoader</cite></p></li>
-<li><p><strong>start_iteration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – optional start iteration</p></li>
+<li><p><strong>batch_sampler</strong> – batch sampler same as used with <cite>torch.utils.data.DataLoader</cite>.</p></li>
+<li><p><strong>start_iteration</strong> – optional start iteration.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1687,7 +1623,7 @@ This helps to start providing data batches from an iteration in a deterministic 
 while executing a function. For more details on usage, please see <a class="reference internal" href="#dataflow-synchronization"><span class="std std-ref">Dataflow synchronization</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> (<em>callable</em>) – function to decorate</p>
+<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em>) – function to decorate</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>Callable</p>
@@ -1703,7 +1639,7 @@ dataloader with new batch sampler.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dataloader</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.utils.data.DataLoader</em></a>) – input dataloader</p></li>
+<li><p><strong>dataloader</strong> (<em>torch.utils.data.dataloader.DataLoader</em>) – input dataloader</p></li>
 <li><p><strong>new_batch_sampler</strong> (<em>torch.utils.data.sampler.BatchSampler</em>) – new batch sampler to use</p></li>
 </ul>
 </dd>

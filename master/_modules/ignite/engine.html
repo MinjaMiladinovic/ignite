@@ -342,17 +342,17 @@
     <span class="sd">&quot;&quot;&quot;Factory function for supervised training.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (torch.nn.Module): the model to train.</span>
-<span class="sd">        optimizer (torch.optim.Optimizer): the optimizer to use.</span>
-<span class="sd">        loss_fn (torch.nn loss function): the loss function to use.</span>
-<span class="sd">        device (str, optional): device type specification (default: None).</span>
+<span class="sd">        model: the model to train.</span>
+<span class="sd">        optimizer: the optimizer to use.</span>
+<span class="sd">        loss_fn: the loss function to use.</span>
+<span class="sd">        device: device type specification (default: None).</span>
 <span class="sd">            Applies to batches after starting the engine. Model *will not* be moved.</span>
 <span class="sd">            Device can be CPU, GPU.</span>
-<span class="sd">        non_blocking (bool, optional): if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
+<span class="sd">        non_blocking: if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
 <span class="sd">            with respect to the host. For other cases, this argument has no effect.</span>
-<span class="sd">        prepare_batch (callable, optional): function that receives `batch`, `device`, `non_blocking` and outputs</span>
+<span class="sd">        prepare_batch: function that receives `batch`, `device`, `non_blocking` and outputs</span>
 <span class="sd">            tuple of tensors `(batch_x, batch_y)`.</span>
-<span class="sd">        output_transform (callable, optional): function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
+<span class="sd">        output_transform: function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
 <span class="sd">            to be assigned to engine&#39;s state.output after each iteration. Default is returning `loss.item()`.</span>
 
 <span class="sd">    Returns:</span>
@@ -398,19 +398,19 @@
     <span class="sd">&quot;&quot;&quot;Factory function for supervised training using ``torch.cuda.amp``.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (torch.nn.Module): the model to train.</span>
-<span class="sd">        optimizer (torch.optim.Optimizer): the optimizer to use.</span>
-<span class="sd">        loss_fn (torch.nn loss function): the loss function to use.</span>
-<span class="sd">        device (str, optional): device type specification (default: None).</span>
+<span class="sd">        model: the model to train.</span>
+<span class="sd">        optimizer: the optimizer to use.</span>
+<span class="sd">        loss_fn: the loss function to use.</span>
+<span class="sd">        device: device type specification (default: None).</span>
 <span class="sd">            Applies to batches after starting the engine. Model *will not* be moved.</span>
 <span class="sd">            Device can be CPU, GPU.</span>
-<span class="sd">        non_blocking (bool, optional): if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
+<span class="sd">        non_blocking: if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
 <span class="sd">            with respect to the host. For other cases, this argument has no effect.</span>
-<span class="sd">        prepare_batch (callable, optional): function that receives `batch`, `device`, `non_blocking` and outputs</span>
+<span class="sd">        prepare_batch: function that receives `batch`, `device`, `non_blocking` and outputs</span>
 <span class="sd">            tuple of tensors `(batch_x, batch_y)`.</span>
-<span class="sd">        output_transform (callable, optional): function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
+<span class="sd">        output_transform: function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
 <span class="sd">            to be assigned to engine&#39;s state.output after each iteration. Default is returning `loss.item()`.</span>
-<span class="sd">        scaler (torch.cuda.amp.GradScaler, optional): GradScaler instance for gradient scaling. (default: None)</span>
+<span class="sd">        scaler: GradScaler instance for gradient scaling. (default: None)</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Callable: update function</span>
@@ -466,17 +466,17 @@
     <span class="sd">&quot;&quot;&quot;Factory function for supervised training using apex.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (torch.nn.Module): the model to train.</span>
-<span class="sd">        optimizer (torch.optim.Optimizer): the optimizer to use.</span>
-<span class="sd">        loss_fn (torch.nn loss function): the loss function to use.</span>
-<span class="sd">        device (str, optional): device type specification (default: None).</span>
+<span class="sd">        model: the model to train.</span>
+<span class="sd">        optimizer: the optimizer to use.</span>
+<span class="sd">        loss_fn: the loss function to use.</span>
+<span class="sd">        device: device type specification (default: None).</span>
 <span class="sd">            Applies to batches after starting the engine. Model *will not* be moved.</span>
 <span class="sd">            Device can be CPU, GPU.</span>
-<span class="sd">        non_blocking (bool, optional): if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
+<span class="sd">        non_blocking: if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
 <span class="sd">            with respect to the host. For other cases, this argument has no effect.</span>
-<span class="sd">        prepare_batch (callable, optional): function that receives `batch`, `device`, `non_blocking` and outputs</span>
+<span class="sd">        prepare_batch: function that receives `batch`, `device`, `non_blocking` and outputs</span>
 <span class="sd">            tuple of tensors `(batch_x, batch_y)`.</span>
-<span class="sd">        output_transform (callable, optional): function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
+<span class="sd">        output_transform: function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
 <span class="sd">            to be assigned to engine&#39;s state.output after each iteration. Default is returning `loss.item()`.</span>
 
 <span class="sd">    Returns:</span>
@@ -527,17 +527,17 @@
     <span class="sd">&quot;&quot;&quot;Factory function for supervised training using ``torch_xla``.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (torch.nn.Module): the model to train.</span>
-<span class="sd">        optimizer (torch.optim.Optimizer): the optimizer to use.</span>
-<span class="sd">        loss_fn (torch.nn loss function): the loss function to use.</span>
-<span class="sd">        device (str, optional): device type specification (default: None).</span>
+<span class="sd">        model: the model to train.</span>
+<span class="sd">        optimizer: the optimizer to use.</span>
+<span class="sd">        loss_fn: the loss function to use.</span>
+<span class="sd">        device: device type specification (default: None).</span>
 <span class="sd">            Applies to batches after starting the engine. Model *will not* be moved.</span>
 <span class="sd">            Device can be CPU, TPU.</span>
-<span class="sd">        non_blocking (bool, optional): if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
+<span class="sd">        non_blocking: if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
 <span class="sd">            with respect to the host. For other cases, this argument has no effect.</span>
-<span class="sd">        prepare_batch (callable, optional): function that receives `batch`, `device`, `non_blocking` and outputs</span>
+<span class="sd">        prepare_batch: function that receives `batch`, `device`, `non_blocking` and outputs</span>
 <span class="sd">            tuple of tensors `(batch_x, batch_y)`.</span>
-<span class="sd">        output_transform (callable, optional): function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
+<span class="sd">        output_transform: function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
 <span class="sd">            to be assigned to engine&#39;s state.output after each iteration. Default is returning `loss.item()`.</span>
 
 <span class="sd">    Returns:</span>
@@ -617,28 +617,31 @@
     <span class="sd">&quot;&quot;&quot;Factory function for creating a trainer for supervised models.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (torch.nn.Module): the model to train.</span>
-<span class="sd">        optimizer (torch.optim.Optimizer): the optimizer to use.</span>
-<span class="sd">        loss_fn (torch.nn loss function): the loss function to use.</span>
-<span class="sd">        device (str, optional): device type specification (default: None).</span>
+<span class="sd">        model: the model to train.</span>
+<span class="sd">        optimizer: the optimizer to use.</span>
+<span class="sd">        loss_fn: the loss function to use.</span>
+<span class="sd">        device: device type specification (default: None).</span>
 <span class="sd">            Applies to batches after starting the engine. Model *will not* be moved.</span>
 <span class="sd">            Device can be CPU, GPU or TPU.</span>
-<span class="sd">        non_blocking (bool, optional): if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
+<span class="sd">        non_blocking: if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
 <span class="sd">            with respect to the host. For other cases, this argument has no effect.</span>
-<span class="sd">        prepare_batch (callable, optional): function that receives `batch`, `device`, `non_blocking` and outputs</span>
+<span class="sd">        prepare_batch: function that receives `batch`, `device`, `non_blocking` and outputs</span>
 <span class="sd">            tuple of tensors `(batch_x, batch_y)`.</span>
-<span class="sd">        output_transform (callable, optional): function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
+<span class="sd">        output_transform: function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39;, &#39;loss&#39; and returns value</span>
 <span class="sd">            to be assigned to engine&#39;s state.output after each iteration. Default is returning `loss.item()`.</span>
-<span class="sd">        deterministic (bool, optional): if True, returns deterministic engine of type</span>
+<span class="sd">        deterministic: if True, returns deterministic engine of type</span>
 <span class="sd">            :class:`~ignite.engine.deterministic.DeterministicEngine`, otherwise :class:`~ignite.engine.engine.Engine`</span>
 <span class="sd">            (default: False).</span>
-<span class="sd">        amp_mode (str, optional): can be ``amp`` or ``apex``, model and optimizer will be casted to float16 using</span>
+<span class="sd">        amp_mode: can be ``amp`` or ``apex``, model and optimizer will be casted to float16 using</span>
 <span class="sd">            `torch.cuda.amp &lt;https://pytorch.org/docs/stable/amp.html&gt;`_ for ``amp`` and</span>
 <span class="sd">            using `apex &lt;https://nvidia.github.io/apex&gt;`_ for ``apex``. (default: None)</span>
-<span class="sd">        scaler (torch.cuda.amp.GradScaler, bool, optional): GradScaler instance for gradient scaling if `torch&gt;=1.6.0`</span>
+<span class="sd">        scaler: GradScaler instance for gradient scaling if `torch&gt;=1.6.0`</span>
 <span class="sd">            and ``amp_mode`` is ``amp``. If ``amp_mode`` is ``apex``, this argument will be ignored.</span>
 <span class="sd">            If True, will create default GradScaler. If GradScaler instance is passed, it will be used instead.</span>
 <span class="sd">            (default: False)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a trainer engine with supervised update function.</span>
 
 <span class="sd">    Note:</span>
 <span class="sd">        If ``scaler`` is True, GradScaler instance will be created internally and trainer state has attribute named</span>
@@ -663,9 +666,6 @@
 <span class="sd">        and optimizer(s), but before you send your model through any DistributedDataParallel wrapper.</span>
 
 <span class="sd">        See more: https://nvidia.github.io/apex/amp.html#module-apex.amp</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Engine: a trainer engine with supervised update function.</span>
 
 <span class="sd">    .. versionchanged:: 0.5.0</span>
 
@@ -713,17 +713,20 @@
 <span class="sd">    Factory function for creating an evaluator for supervised models.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (`torch.nn.Module`): the model to train.</span>
-<span class="sd">        metrics (dict of str - :class:`~ignite.metrics.Metric`): a map of metric names to Metrics.</span>
-<span class="sd">        device (str, optional): device type specification (default: None).</span>
+<span class="sd">        model: the model to train.</span>
+<span class="sd">        metrics: a map of metric names to Metrics.</span>
+<span class="sd">        device: device type specification (default: None).</span>
 <span class="sd">            Applies to batches after starting the engine. Model *will not* be moved.</span>
-<span class="sd">        non_blocking (bool, optional): if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
+<span class="sd">        non_blocking: if True and this copy is between CPU and GPU, the copy may occur asynchronously</span>
 <span class="sd">            with respect to the host. For other cases, this argument has no effect.</span>
-<span class="sd">        prepare_batch (callable, optional): function that receives `batch`, `device`, `non_blocking` and outputs</span>
+<span class="sd">        prepare_batch: function that receives `batch`, `device`, `non_blocking` and outputs</span>
 <span class="sd">            tuple of tensors `(batch_x, batch_y)`.</span>
-<span class="sd">        output_transform (callable, optional): function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39; and returns value</span>
+<span class="sd">        output_transform: function that receives &#39;x&#39;, &#39;y&#39;, &#39;y_pred&#39; and returns value</span>
 <span class="sd">            to be assigned to engine&#39;s state.output after each iteration. Default is returning `(y_pred, y,)` which fits</span>
 <span class="sd">            output expected by metrics. If you change it you should use `output_transform` in metrics.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        an evaluator engine with supervised inference function.</span>
 
 <span class="sd">    Note:</span>
 <span class="sd">        `engine.state.output` for this engine is defind by `output_transform` parameter and is</span>
@@ -740,9 +743,6 @@
 <span class="sd">        - `PyTorch Documentation &lt;https://pytorch.org/docs/stable/optim.html#constructing-it&gt;`_</span>
 
 <span class="sd">        - `PyTorch&#39;s Explanation &lt;https://github.com/pytorch/pytorch/issues/7844#issuecomment-503713840&gt;`_</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Engine: an evaluator engine with supervised inference function.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">metrics</span> <span class="o">=</span> <span class="n">metrics</span> <span class="ow">or</span> <span class="p">{}</span>
 
