@@ -1174,7 +1174,7 @@ other state values defined by <cite>engine.state_dict_user_keys</cite></p>
 
 <dl class="py class">
 <dt id="ignite.engine.deterministic.ReproducibleBatchSampler">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.engine.deterministic.</code><code class="sig-name descname">ReproducibleBatchSampler</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/engine/deterministic.html#ReproducibleBatchSampler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.engine.deterministic.ReproducibleBatchSampler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.engine.deterministic.</code><code class="sig-name descname">ReproducibleBatchSampler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_sampler</span></em>, <em class="sig-param"><span class="n">start_iteration</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/engine/deterministic.html#ReproducibleBatchSampler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.engine.deterministic.ReproducibleBatchSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reproducible batch sampler. This class internally iterates and stores indices of the input batch sampler.
 This helps to start providing data batches from an iteration in a deterministic way.</p>
 <p>Usage:</p>
@@ -1447,7 +1447,6 @@ random batches based on altered random state.</p>
          <script src="_static/jquery.js"></script>
          <script src="_static/underscore.js"></script>
          <script src="_static/doctools.js"></script>
-         <script src="_static/language_data.js"></script>
      
 
   

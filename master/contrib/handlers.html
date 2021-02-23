@@ -2731,11 +2731,11 @@ added by <a class="reference internal" href="../engine.html#ignite.engine.engine
 
 <dl class="py class">
 <dt id="ignite.contrib.handlers.neptune_logger.NeptuneSaver">
-<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.handlers.neptune_logger.</code><code class="sig-name descname">NeptuneSaver</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/neptune_logger.html#NeptuneSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneSaver" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ignite.contrib.handlers.neptune_logger.</code><code class="sig-name descname">NeptuneSaver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">neptune_logger</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/handlers/neptune_logger.html#NeptuneSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.handlers.neptune_logger.NeptuneSaver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handler that saves input checkpoint to the Neptune server.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>neptune_logger</strong> – an instance of
+<dd class="field-odd"><p><strong>neptune_logger</strong> (<a class="reference internal" href="#ignite.contrib.handlers.neptune_logger.NeptuneLogger" title="ignite.contrib.handlers.neptune_logger.NeptuneLogger"><em>ignite.contrib.handlers.neptune_logger.NeptuneLogger</em></a>) – an instance of
 NeptuneLogger class.</p>
 </dd>
 </dl>
@@ -2788,7 +2788,7 @@ NeptuneLogger class.</p>
 <dd><p>Method to remove saved checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> – filename associated with checkpoint.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – filename associated with checkpoint.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -4461,7 +4461,7 @@ directory will be created.</p></li>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> – artifact name.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – artifact name.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a local path to a downloaded copy of the artifact</p>
@@ -4478,7 +4478,7 @@ directory will be created.</p></li>
 <dd><p>Method to remove saved checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> – filename associated with checkpoint.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – filename associated with checkpoint.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -5173,7 +5173,6 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
          <script src="../_static/jquery.js"></script>
          <script src="../_static/underscore.js"></script>
          <script src="../_static/doctools.js"></script>
-         <script src="../_static/language_data.js"></script>
      
 
   
