@@ -1908,12 +1908,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
@@ -2421,12 +2421,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
@@ -2788,7 +2788,7 @@ NeptuneLogger class.</p>
 <dd><p>Method to remove saved checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – filename associated with checkpoint.</p>
+<dd class="field-odd"><p><strong>filename</strong> – filename associated with checkpoint.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -2991,12 +2991,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
@@ -3309,12 +3309,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
@@ -3785,12 +3785,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
@@ -4161,12 +4161,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
@@ -4478,7 +4478,7 @@ directory will be created.</p></li>
 <dd><p>Method to remove saved checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – filename associated with checkpoint.</p>
+<dd class="field-odd"><p><strong>filename</strong> – filename associated with checkpoint.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
@@ -4765,12 +4765,12 @@ This can be helpful for logging trainer epoch/iteration while output handler is 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>Engine</em></a>) – engine which state is used to provide the global step</p></li>
-<li><p><strong>custom_event_name</strong> (<em>optional</em>) – registered event name. Optional argument, event name to use.</p></li>
+<li><p><strong>engine</strong> (<a class="reference internal" href="../engine.html#ignite.engine.engine.Engine" title="ignite.engine.engine.Engine"><em>ignite.engine.engine.Engine</em></a>) – engine which state is used to provide the global step</p></li>
+<li><p><strong>custom_event_name</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../engine.html#ignite.engine.events.Events" title="ignite.engine.events.Events"><em>ignite.engine.events.Events</em></a><em>]</em>) – registered event name. Optional argument, event name to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>global step</p>
+<dd class="field-even"><p>global step based on provided engine</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Callable</p>
