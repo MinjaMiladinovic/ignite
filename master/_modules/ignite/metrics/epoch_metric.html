@@ -320,17 +320,17 @@
 <span class="sd">    e.g. ``[[0, 1, 0, 1], ]``.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        compute_fn (callable): a callable with the signature (`torch.tensor`, `torch.tensor`) takes as the input</span>
+<span class="sd">        compute_fn: a callable with the signature (`torch.tensor`, `torch.tensor`) takes as the input</span>
 <span class="sd">            `predictions` and `targets` and returns a scalar. Input tensors will be on specified ``device``</span>
 <span class="sd">            (see arg below).</span>
-<span class="sd">        output_transform (callable, optional): a callable that is used to transform the</span>
+<span class="sd">        output_transform: a callable that is used to transform the</span>
 <span class="sd">            :class:`~ignite.engine.engine.Engine`&#39;s ``process_function``&#39;s output into the</span>
 <span class="sd">            form expected by the metric. This can be useful if, for example, you have a multi-output model and</span>
 <span class="sd">            you want to compute the metric with respect to one of the outputs.</span>
-<span class="sd">        check_compute_fn (bool): if True, ``compute_fn`` is run on the first batch of data to ensure there are no</span>
+<span class="sd">        check_compute_fn: if True, ``compute_fn`` is run on the first batch of data to ensure there are no</span>
 <span class="sd">            issues. If issues exist, user is warned that there might be an issue with the ``compute_fn``.</span>
 <span class="sd">            Default, True.</span>
-<span class="sd">        device (str or torch.device, optional): optional device specification for internal storage.</span>
+<span class="sd">        device: optional device specification for internal storage.</span>
 
 <span class="sd">    Warnings:</span>
 <span class="sd">        EpochMetricWarning: User is warned that there are issues with ``compute_fn`` on a batch of data processed.</span>

@@ -302,10 +302,10 @@
 <span class="sd">    Calculates the average loss according to the passed loss_fn.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        loss_fn (callable): a callable taking a prediction tensor, a target</span>
+<span class="sd">        loss_fn: a callable taking a prediction tensor, a target</span>
 <span class="sd">            tensor, optionally other arguments, and returns the average loss</span>
 <span class="sd">            over all observations in the batch.</span>
-<span class="sd">        output_transform (callable): a callable that is used to transform the</span>
+<span class="sd">        output_transform: a callable that is used to transform the</span>
 <span class="sd">            :class:`~ignite.engine.engine.Engine`&#39;s ``process_function``&#39;s output into the</span>
 <span class="sd">            form expected by the metric.</span>
 <span class="sd">            This can be useful if, for example, you have a multi-output model and</span>
@@ -313,9 +313,9 @@
 <span class="sd">            The output is expected to be a tuple `(prediction, target)` or</span>
 <span class="sd">            (prediction, target, kwargs) where kwargs is a dictionary of extra</span>
 <span class="sd">            keywords arguments. If extra keywords arguments are provided they are passed to `loss_fn`.</span>
-<span class="sd">        batch_size (callable): a callable taking a target tensor that returns the</span>
+<span class="sd">        batch_size: a callable taking a target tensor that returns the</span>
 <span class="sd">            first dimension size (usually the batch size).</span>
-<span class="sd">        device (str or torch.device): specifies which device updates are accumulated on. Setting the</span>
+<span class="sd">        device: specifies which device updates are accumulated on. Setting the</span>
 <span class="sd">            metric&#39;s device to be the same as your ``update`` arguments ensures the ``update`` method is</span>
 <span class="sd">            non-blocking. By default, CPU.</span>
 

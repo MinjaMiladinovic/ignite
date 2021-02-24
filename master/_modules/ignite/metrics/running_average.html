@@ -302,14 +302,14 @@
     <span class="sd">&quot;&quot;&quot;Compute running average of a metric or the output of process function.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        src (Metric or None): input source: an instance of :class:`~ignite.metrics.Metric` or None. The latter</span>
+<span class="sd">        src: input source: an instance of :class:`~ignite.metrics.Metric` or None. The latter</span>
 <span class="sd">            corresponds to `engine.state.output` which holds the output of process function.</span>
-<span class="sd">        alpha (float, optional): running average decay factor, default 0.98</span>
-<span class="sd">        output_transform (callable, optional): a function to use to transform the output if `src` is None and</span>
+<span class="sd">        alpha: running average decay factor, default 0.98</span>
+<span class="sd">        output_transform: a function to use to transform the output if `src` is None and</span>
 <span class="sd">            corresponds the output of process function. Otherwise it should be None.</span>
-<span class="sd">        epoch_bound (boolean, optional): whether the running average should be reset after each epoch (defaults</span>
+<span class="sd">        epoch_bound: whether the running average should be reset after each epoch (defaults</span>
 <span class="sd">            to True).</span>
-<span class="sd">        device (str or torch.device, optional): specifies which device updates are accumulated on. Should be</span>
+<span class="sd">        device: specifies which device updates are accumulated on. Should be</span>
 <span class="sd">            None when ``src`` is an instance of :class:`~ignite.metrics.Metric`, as the running average will</span>
 <span class="sd">            use the ``src``&#39;s device. Otherwise, defaults to CPU. Only applicable when the computed value</span>
 <span class="sd">            from the metric is a tensor.</span>

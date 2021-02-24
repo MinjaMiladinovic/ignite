@@ -314,13 +314,13 @@
 <span class="sd">        - `+batch_size` if input is a ND `torch.Tensor`. Batch size is the first dimension (`shape[0]`).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        op (callable): a callable to update accumulator. Method&#39;s signature is `(accumulator, output)`.</span>
+<span class="sd">        op: a callable to update accumulator. Method&#39;s signature is `(accumulator, output)`.</span>
 <span class="sd">            For example, to compute arithmetic mean value, `op = lambda a, x: a + x`.</span>
-<span class="sd">        output_transform (callable, optional): a callable that is used to transform the</span>
+<span class="sd">        output_transform: a callable that is used to transform the</span>
 <span class="sd">            :class:`~ignite.engine.engine.Engine`&#39;s ``process_function``&#39;s output into the</span>
 <span class="sd">            form expected by the metric. This can be useful if, for example, you have a multi-output model and</span>
 <span class="sd">            you want to compute the metric with respect to one of the outputs.</span>
-<span class="sd">        device (str or torch.device): specifies which device updates are accumulated on. Setting the metric&#39;s</span>
+<span class="sd">        device: specifies which device updates are accumulated on. Setting the metric&#39;s</span>
 <span class="sd">            device to be the same as your ``update`` arguments ensures the ``update`` method is non-blocking. By</span>
 <span class="sd">            default, CPU.</span>
 
@@ -401,11 +401,11 @@
 <span class="sd">        # state.metrics[&#39;mean_custom_var&#39;] -&gt; average of output[&#39;custom_var&#39;]</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        output_transform (callable, optional): a callable that is used to transform the</span>
+<span class="sd">        output_transform: a callable that is used to transform the</span>
 <span class="sd">            :class:`~ignite.engine.engine.Engine`&#39;s ``process_function``&#39;s output into the</span>
 <span class="sd">            form expected by the metric. This can be useful if, for example, you have a multi-output model and</span>
 <span class="sd">            you want to compute the metric with respect to one of the outputs.</span>
-<span class="sd">        device (str or torch.device): specifies which device updates are accumulated on. Setting the metric&#39;s</span>
+<span class="sd">        device: specifies which device updates are accumulated on. Setting the metric&#39;s</span>
 <span class="sd">            device to be the same as your ``update`` arguments ensures the ``update`` method is non-blocking. By</span>
 <span class="sd">            default, CPU.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -448,11 +448,11 @@
 <span class="sd">        is aggregated and added to the accumulator: `accumulator *= prod(x, dim=0)`</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        output_transform (callable, optional): a callable that is used to transform the</span>
+<span class="sd">        output_transform: a callable that is used to transform the</span>
 <span class="sd">            :class:`~ignite.engine.engine.Engine`&#39;s ``process_function``&#39;s output into the</span>
 <span class="sd">            form expected by the metric. This can be useful if, for example, you have a multi-output model and</span>
 <span class="sd">            you want to compute the metric with respect to one of the outputs.</span>
-<span class="sd">        device (str or torch.device): specifies which device updates are accumulated on. Setting the metric&#39;s</span>
+<span class="sd">        device: specifies which device updates are accumulated on. Setting the metric&#39;s</span>
 <span class="sd">            device to be the same as your ``update`` arguments ensures the ``update`` method is non-blocking. By</span>
 <span class="sd">            default, CPU.</span>
 

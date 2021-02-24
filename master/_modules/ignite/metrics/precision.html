@@ -392,15 +392,15 @@
 
 
 <span class="sd">    Args:</span>
-<span class="sd">        output_transform (callable, optional): a callable that is used to transform the</span>
+<span class="sd">        output_transform: a callable that is used to transform the</span>
 <span class="sd">            :class:`~ignite.engine.engine.Engine`&#39;s ``process_function``&#39;s output into the</span>
 <span class="sd">            form expected by the metric. This can be useful if, for example, you have a multi-output model and</span>
 <span class="sd">            you want to compute the metric with respect to one of the outputs.</span>
-<span class="sd">        average (bool, optional): if True, precision is computed as the unweighted average (across all classes</span>
+<span class="sd">        average: if True, precision is computed as the unweighted average (across all classes</span>
 <span class="sd">            in multiclass case), otherwise, returns a tensor with the precision (for each class in multiclass case).</span>
-<span class="sd">        is_multilabel (bool, optional) flag to use in multilabel case. By default, value is False. If True, average</span>
+<span class="sd">        is_multilabel: flag to use in multilabel case. By default, value is False. If True, average</span>
 <span class="sd">            parameter should be True and the average is computed across samples, instead of classes.</span>
-<span class="sd">        device (str or torch.device): specifies which device updates are accumulated on. Setting the metric&#39;s</span>
+<span class="sd">        device: specifies which device updates are accumulated on. Setting the metric&#39;s</span>
 <span class="sd">            device to be the same as your ``update`` arguments ensures the ``update`` method is non-blocking. By</span>
 <span class="sd">            default, CPU.</span>
 

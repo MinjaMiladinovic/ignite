@@ -309,12 +309,12 @@
 <span class="sd">    - `y_pred` and `y` **must** have same dtype and same shape.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data_range (int or float): The data range of the target image (distance between minimum</span>
+<span class="sd">        data_range: The data range of the target image (distance between minimum</span>
 <span class="sd">            and maximum possible values).</span>
 <span class="sd">            For other data types, please set the data range, otherwise an exception will be raised.</span>
-<span class="sd">        output_transform (callable, optional): A callable that is used to transform the Engine’s</span>
+<span class="sd">        output_transform: A callable that is used to transform the Engine’s</span>
 <span class="sd">            process_function’s output into the form expected by the metric.</span>
-<span class="sd">        device (str or torch.device): specifies which device updates are accumulated on.</span>
+<span class="sd">        device: specifies which device updates are accumulated on.</span>
 <span class="sd">            Setting the metric’s device to be the same as your update arguments ensures</span>
 <span class="sd">            the update method is non-blocking. By default, CPU.</span>
 
