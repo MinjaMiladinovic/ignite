@@ -620,7 +620,7 @@
 <span class="sd">    Args:</span>
 <span class="sd">        tensor: tensor or number to collect across participating processes.</span>
 <span class="sd">        op: reduction operation, &quot;SUM&quot; by default. Possible values: &quot;SUM&quot;, &quot;PRODUCT&quot;, &quot;MIN&quot;, &quot;MAX&quot;, &quot;AND&quot;, &quot;OR&quot;.</span>
-<span class="sd">            Please, several values are not supported for the backend like &quot;horovod&quot;.</span>
+<span class="sd">            Horovod backend supports only &quot;SUM&quot;, &quot;AVERAGE&quot;, &quot;ADASUM&quot;, &quot;MIN&quot;, &quot;MAX&quot;, &quot;PRODUCT&quot;.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        torch.Tensor or number</span>

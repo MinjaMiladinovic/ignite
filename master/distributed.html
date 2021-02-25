@@ -829,7 +829,7 @@ List of strings if input is a string</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tensor</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+57bffc3 ))"><em>torch.Tensor</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>]</em>) – tensor or number to collect across participating processes.</p></li>
 <li><p><strong>op</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – reduction operation, “SUM” by default. Possible values: “SUM”, “PRODUCT”, “MIN”, “MAX”, “AND”, “OR”.
-Please, several values are not supported for the backend like “horovod”.</p></li>
+Horovod backend supports only “SUM”, “AVERAGE”, “ADASUM”, “MIN”, “MAX”, “PRODUCT”.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
